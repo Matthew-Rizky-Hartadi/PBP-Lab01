@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block meta %}
 <title>Account Registration</title>
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
 {% endblock meta %}
 
 {% block content %}  
 
-<div class = "login">
-    
-    <h1>Registration Form</h1>  
-
+<div class = "regis_container">
+    <div class="regis">
         <form method="POST" >  
             {% csrf_token %}  
             <table>  
@@ -21,13 +21,18 @@
             </table>  
         </form>
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                    {% endfor %}  
+            </ul>   
+        {% endif %}
+    </div>
+    
+    <h1>Registration Form</h1>  
+
+        
 
 </div>  
 
